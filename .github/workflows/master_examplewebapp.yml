@@ -33,7 +33,7 @@ jobs:
           dotnet tool install --global dotnet-ef
           dotnet ef database update --project SimpleWebAppMVC/SimpleWebAppMVC.csproj
         env:
-          ConnectionStrings__DbConnection: "Server=examplewebapp-server.mysql.database.azure.com;Database=simplewebapp;Uid=wdylzwyro;Pwd=${{ secrets.DB_PASSWORD }};SslMode=Required;"
+          ConnectionStrings__DbConnection: "Server=tcp:deployment-task-3.database.windows.net,1433;Initial Catalog=your-database-name;Persist Security Info=False;User ID=your-admin-username;Password=${{ secrets.DB_PASSWORD }};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
